@@ -1,8 +1,8 @@
-const person = {
+/*const person = {
     name: 'Rick',
     age: 77,
     country: 'US',
-}
+} */
 
 const clone1 = structuredClone(person)
 const clone2 = structuredClone(person)
