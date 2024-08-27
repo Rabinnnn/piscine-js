@@ -1,2 +1,2 @@
-const smalls = -(1<<63)
-const biggie = 1<<63-1
+const smalls = Number.MIN_VALUE
+const biggie = Number.MAX_VALUE
