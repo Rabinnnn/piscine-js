@@ -7,5 +7,5 @@ function last(slice){
 }
 
 function kiss(slice){
-    return slice[last(slice), first(slice)]
+    return [last(slice), first(slice)]
 }
