@@ -1,4 +1,3 @@
 
 const smalls = Number.MIN_VALUE; 
-const biggie = Number.MAX_VALUE + 1;
-console.log(biggie)
+const biggie = 1.7976931348623157e308;
