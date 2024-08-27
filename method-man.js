@@ -1,4 +1,4 @@
-function works(str){
+function words(str){
     return str.split(' ')
 }
 
