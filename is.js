@@ -1,4 +1,4 @@
-is.num = (input) => Number.isNaN(input)
+is.num = (input) => typeof input === 'number' && !isNaN(input)
 is.nan = (input) => Number.isNaN(input)
 is.str = (input) => typeof input === 'string'
 is.bool = (input) => typeof input === 'boolean'
