@@ -1,3 +1,3 @@
 
-const smalls = Number.MIN_VALUE; 
-const biggie = 1.7976931348623157e308;
+const smalls = -Infinity; 
+const biggie = Infinity;
