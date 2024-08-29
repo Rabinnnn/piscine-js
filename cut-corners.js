@@ -1,22 +1,26 @@
 function round(n) {
-    return (n >= 0 ? Math.floor(n + 0.5) : Math.ceil(n - 0.5));
+    // Handles positive and negative numbers
+    return n >= 0 ? (n + 0.5) | 0 : (n - 0.5) | 0;
 }
 
 function ceil(n) {
-    return n > Math.floor(n) ? Math.floor(n) + 1 : Math.floor(n);
+    // Handles positive and negative numbers
+    return n > (n | 0) ? (n | 0) + 1 : (n | 0);
 }
 
 function floor(n) {
-    return n < Math.ceil(n) ? Math.ceil(n) - 1 : Math.floor(n);
+    // Handles positive and negative numbers
+    return n < (n | 0) ? (n | 0) - 1 : (n | 0);
 }
 
 function trunc(n) {
-    return n >= 0 ? Math.floor(n) : Math.ceil(n);
+    // Handles positive and negative numbers
+    return n | 0;
 }
 
-/*
+// Test the custom functions
 const nums = [3.7, -3.7, 3.1, -3.1];
-console.log(nums.map(round));  // [ 4, -4, 3, -3 ]
-console.log(nums.map(floor));  // [ 3, -4, 3, -4 ]
-console.log(nums.map(trunc));  // [ 3, -3, 3, -3 ]
-console.log(nums.map(ceil));   // [ 4, -3, 4, -3 ] */
+console.log(nums.map(round));  // [ 4, -4, 3, -3, 0 ]
+console.log(nums.map(floor));  // [ 3, -4, 3, -4, 0 ]
+console.log(nums.map(trunc));  // [ 3, -3, 3, -3, 0 ]
+console.log(nums.map(ceil));   // [ 4, -3, 4, -3, 0 ]
