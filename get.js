@@ -1,13 +1,13 @@
 function get(src, path) {
     // Get the keys
     const keys = path.split('.'); 
-    let output = ""; 
+    let output = src; 
 
     for (let key of keys) {
-        if (src === undefined || src === null || !src.hasOwnProperty(key)) {
+        if (output === undefined || output === null || !output.hasOwnProperty(key)) {
             return undefined; 
         }
-        output = src[key]; 
+        output = output[key]; 
     }
 
     return output; 
