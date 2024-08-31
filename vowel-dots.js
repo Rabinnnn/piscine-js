@@ -1,7 +1,7 @@
-const reg = /[aeiou]/gi
 function vowelDots(str){
-    
-    return str.replace(reg, function(vowel){
+    const vowels = /[aeiou]/gi
+
+    return str.replace(vowels, function(vowel){
         return vowel + "."
     })
  
