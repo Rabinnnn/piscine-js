@@ -16,7 +16,7 @@ function addWeek(date) {
         13: "secondSunday",
     };
     let newTime = date.getTime() + 62135596800000;
-       // let newTime = date.getTime() + (1969*365*24*60*60*1000);
+       // let newTime = date.getTime() + (1970*365*24*60*60*1000);
 
     return week[(newTime / 86400000) % 14];
 }
