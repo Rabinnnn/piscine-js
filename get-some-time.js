@@ -1,13 +1,16 @@
 function firstDayWeek(week, year) {
- 
-    year = parseInt(year);
+    year = parseInt(year, 10);
+
+    if (week < 1 || week > 53) {
+        throw new Error("Week must be between 1 and 53");
+    }
+
     let firstDayOfYear = new Date(year, 0, 1); // January 1st
     let dayOfWeek = firstDayOfYear.getDay();
 
-    // If January 1st is not a Monday, adjust to the previous Monday
+    // Determine how many days to subtract to get to the Monday of the first week
     let daysToSubtract = (dayOfWeek === 0 ? 6 : dayOfWeek - 1); // If Jan 1st is Sunday (0), go back 6 days; otherwise, go back (dayOfWeek - 1)
-    let firstMonday = new Date(firstDayOfYear);
-    firstMonday.setDate(firstDayOfYear.getDate() - daysToSubtract);
+    let firstMonday = new Date(year, 0, 1 - daysToSubtract);
 
     // Calculate the date of the first day of the specified week
     let firstDayOfWeek = new Date(firstMonday);
