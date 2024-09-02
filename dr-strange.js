@@ -15,8 +15,8 @@ function addWeek(date) {
         12: "secondSaturday",
         13: "secondSunday",
     };
-    let zTime = date.getTime() + 62135596800000;
-    return week[(zTime / 86400000) % 14];
+    let newTime = date.getTime() + 62135596800000;
+    return week[(newTime / 86400000) % 14];
 }
 
 function timeTravel(date) {
