@@ -1,11 +1,13 @@
 function firstDayWeek(week, year) {
-    
+ 
     year = parseInt(year);
     let firstDayOfYear = new Date(year, 0, 1); // January 1st
     let dayOfWeek = firstDayOfYear.getDay();
-    let daysToAdd = (dayOfWeek === 0 ? 1 : 8 - dayOfWeek); // If Jan 1st is Sunday (0), add 1 day; otherwise, add (8 - dayOfWeek)
 
-    let firstMonday = new Date(year, 0, 1 + daysToAdd);
+    // If January 1st is not a Monday, adjust to the previous Monday
+    let daysToSubtract = (dayOfWeek === 0 ? 6 : dayOfWeek - 1); // If Jan 1st is Sunday (0), go back 6 days; otherwise, go back (dayOfWeek - 1)
+    let firstMonday = new Date(firstDayOfYear);
+    firstMonday.setDate(firstDayOfYear.getDate() - daysToSubtract);
 
     // Calculate the date of the first day of the specified week
     let firstDayOfWeek = new Date(firstMonday);
