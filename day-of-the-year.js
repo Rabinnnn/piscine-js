@@ -1,11 +1,12 @@
 function dayOfTheYear(date) {
-    
-    const year = date.getFullYear();
-  
-    const startOfYear = new Date(year, 0, 1);
-  
-    const difference = date - startOfYear;
-    const output = Math.floor(difference / (1000 * 60 * 60 * 24));
-  
-    return output
-  }
+    let count = 1;
+    while (!dayOne(date)) {
+        date.setDate(date.getDate() - 1);
+        count++;
+    }
+    return count;
+}
+
+function dayOne(date) {
+    return date.getDate() === 1 && date.getMonth() === 0;
+}
