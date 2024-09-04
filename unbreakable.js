@@ -39,7 +39,7 @@ function split(str,sep){
     if(sep === null){
         sep = ','
     }
-    var result
+    var result = []
     var word = ''
     for (let i = 0; i < str.length; i++){
         if (i + sep.length <= str.length && str.slice(i, i + sep.length) === sep){
