@@ -35,23 +35,23 @@ function join(arr, sep) {
 }
 
 
-function split(str,sep){
-    if(sep === null){
-        sep = ','
-    }
-    var result = []
-    var word = ''
-    for (let i = 0; i < str.length; i++){
-        if (i + sep.length <= str.length && str.slice(i, i + sep.length) === sep){
-            result.push(word)
-            word = ''
-            i += sep.length - 1
-        }else{
-            word += str[i].toString()
-        }
-    }
-    result.push(word)
-    return result
-}
+// function split(str,sep){
+//     if(sep === null){
+//         sep = ','
+//     }
+//     var result = []
+//     var word = ''
+//     for (let i = 0; i < str.length; i++){
+//         if (i + sep.length <= str.length && str.slice(i, i + sep.length) === sep){
+//             result.push(word)
+//             word = ''
+//             i += sep.length - 1
+//         }else{
+//             word += str[i].toString()
+//         }
+//     }
+//     result.push(word)
+//     return result
+// }
 
-//console.log(split('a b c', ' '))
+//console.log(split('a, b, c', ','))
