@@ -3,7 +3,7 @@ function filterShortStateName(arr) {
 }
 
 function filterStartVowel(arr) {
-    return arr.filter((item) =>  item.match(/^[aeiou]/));
+    return arr.filter((item) =>  item.match(/^[aeiou]/gi));
 }
 
 function filter5Vowels(arr) {
@@ -11,7 +11,7 @@ function filter5Vowels(arr) {
 }
 
 function filter1DistinctVowel(arr) {
-    return arr.filter((item) => new Set(item.toLowerCase().match(/[aeiou]/g)).size === 1);
+    return arr.filter((item) => new Set(item.match(/[aeiou]/gi)).size === 1);
 }
 
 function multiFilter(arr) {
