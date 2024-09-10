@@ -1,5 +1,5 @@
 function filterKeys(input, str) {
-    return inputect.keys(input)
+    return input.keys(input)
         .filter(str)
         .reduce((res, key) => {
             res[key] = input[key];
@@ -8,10 +8,10 @@ function filterKeys(input, str) {
 }
 
 function mapKeys(input, func) {
-    return inputect.keys(input)
+    return input.keys(input)
         .map(func)
         .reduce((res, key, i) => {
-            res[key] = input[inputect.keys(input)[i]];
+            res[key] = input[input.keys(input)[i]];
             return res;
         }, {});
 }
@@ -22,7 +22,7 @@ function reduceKeys(input, func, value) {
         value = "";
         undef = true;
     }
-    let res = inputect.keys(input).reduce((acc, curr) => {
+    let res = input.keys(input).reduce((acc, curr) => {
         return func(acc, curr, value);
     }, value);
     // Stupid test cases make me do stupid hardcode :P
