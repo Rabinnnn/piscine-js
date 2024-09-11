@@ -8,9 +8,9 @@ function deepCopy(input){
   } else if ((typeof input === "object") && !(Array.isArray(input) && !(input === null) && !(input instanceof RegExp)) ){
     var result = {}
     for (let key in input){
-        output[key] = deepCopy(input[key])
+        result[key] = deepCopy(input[key])
     }
-    return output
+    return result
   }else{
     return input
   }
