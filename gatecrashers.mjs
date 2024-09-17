@@ -1,0 +1,58 @@
+import http from 'http'
+import { writeFile } from 'fs/promises'
+import { Buffer } from 'node:buffer'
+
+const host = 'localhost'
+const port = 5000
+const guestsPath = `guests`
+const friends = ['Caleb_Squires', 'Tyrique_Dalton', 'Rahima_Young']
+
+const guestData = (req, res) => {
+  let statusCode = 200
+  res.setHeader('Content-Type', 'application/json')
+  const guestFile = `${req.url.slice(1)}.json`
+
+  const errHandler = (err, statusCode, message) => {
+    let bodyRes = JSON.stringify({ error: message })
+
+    res
+      .writeHead(statusCode, {
+        'Content-Length': Buffer.byteLength(bodyRes),
+      })
+      .end(bodyRes)
+  }
+
+  let basicAuth = req.headers['authorization']
+  if (!basicAuth) {
+    errHandler('no credentials found', 401, 'no credentials found')
+    return
+  }
+  let credentials = Buffer.from(basicAuth.slice(6), 'base64')
+    .toString()
+    .split(':')
+
+  if (
+    !friends.includes(credentials[0]) ||
+    credentials[1] !== 'abracadabra'
+  ) {
+    errHandler('wrong credentials', 401, 'Authorization Required%')
+    return
+  }
+
+  let bodyReq = req.headers['body']
+  writeFile(`${guestsPath}/${guestFile}`, bodyReq)
+    .then(() => {
+      let bodyRes = bodyReq
+      res
+        .writeHead(statusCode, {
+          'Content-Length': Buffer.byteLength(bodyRes),
+        })
+        .end(bodyRes)
+    })
+    .catch(errHandler)
+}
+
+const server = http.createServer(guestData)
+server.listen(port, host, () => {
+  console.log(`Server is running on http://${host}:${port}`)
+})
