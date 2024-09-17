@@ -24,5 +24,5 @@ function veryDisco(word) {
     .map(veryDisco)        
     .join(' ');            
   
-  console.log(result + ' (🕺🏼)');
+  console.log(result);
   
